@@ -1,0 +1,460 @@
+<style>
+    .maincontainer{
+        background: #dfe6e9;
+        width: 100%;
+        height: 200%;
+        display: flex;
+        flex-direction: column;
+    }
+    .appbar{
+        background: #fff;
+        width: 100%;
+        height: 5%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .maintab{
+        background: #ecf0f1;
+        width: 100%;
+        height: 200%;
+        display: flex;
+    }
+    .topdiv{
+        height: 90%;
+        width: 67%;
+        background: #ecf0f1;
+        margin-top: 3px;
+        margin-left: 7px;
+    }
+    .bottomdiv{
+        height: 20%;
+        width: 60%;
+        background: #fff;
+        margin-top: 10px;
+        margin-left: 7px;
+    }
+    .rigntdiv{
+        height: 40%;
+        width: 28%;
+        background: #ecf0f1;
+        margin-left: 3%;
+        margin-top: 3px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    .subdivfirst{
+        height: 40%;
+        width: 100%;
+        background: #ecf0f1;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    .subdivsecond{
+        height: 43%;
+        width: 100%;
+        background: #ecf0f1;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    .proceed-btn {
+        background-color: #2e86de; /* Green background color */
+        border: none; /* Remove border */
+        color: white; /* White text color */
+        padding: 12px 24px; /* Add padding */
+        text-align: center; /* Center text */
+        text-decoration: none; /* Remove underline */
+        display: inline-block; /* Display as block element */
+        font-size: 16px; /* Font size */
+        margin: 10px; /* Add margin */
+        cursor: pointer; /* Add cursor on hover */
+        border-radius: 4px; /* Rounded corners */
+        font-weight: bold;
+    }
+
+    .proceed-btn:hover {
+        background-color: #48dbfb; /* Darker green background color on hover */
+    }
+    .box{
+        width: 350px;
+        height: 40px;
+        border: 1px solid #778ca3;
+        border-radius: 10px 10px 10px 10px;
+    }
+    .centerAlign{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .textStyle{
+        /* border: none;
+        outline: none; */
+        font-weight: bold;
+        font-size: 14;
+        text-align: left;
+        margin: 2px;
+    }
+</style>
+<html>
+    <head>
+        <meta name="google-signin-client_id" content="750338901270-tkit5thptcv676re2jbe8grdv6o2laqf.apps.googleusercontent.com">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"/>
+        <!-- datetimepicker jQuery CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+        
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
+  
+    </head>
+    <body>
+        <div class="maincontainer">
+            <div class="appbar">
+                <img src="/static/Logo1.png" width="48" height="40" style="margin-left: 8%; margin-top: 1%;">
+                <div style="margin-left: auto;  width: 17%; display: flex; align-items: center;">
+                    <i style="font-size: 30; margin-right: 4%;" class="fa-solid fa-right-to-bracket"></i>
+                    <span style="margin-right: 5%;">Login & SignUp</span>
+                </div> 
+            </div>
+            <div class="maintab">
+                <div class="topdiv">
+                    <div class="subdivfirst">
+                        <div style="display: flex; font-family: Poppins;">
+                            <span style="font-size: 20; font-weight: bolder; margin-left: 6%; margin-top: 3%;">
+                                {{vehicles.companyname}} {{vehicles.subcategoryname}}
+                                <img src="/{{vehicles.picture}}" width="200px" style="margin-top: 5%; margin-left: 1%;">
+                                <div>
+                                    <img src="/static/iconDiesel.svg" width="3%"><span style="padding-left: 2%; font-family: Poppins; font-size: 12; font-weight: 500;">{{vehicles.fueltype}}</span>
+                                    <img src="/static/iconTransmission.svg" width="10%" style="padding-left: 6%;"><span style="padding-left: 2%; font-family: Poppins; font-size: 12; font-weight: 500;">{{vehicles.transmissiontype}}</span>
+                                    <img src="/static/iconSeat.svg" width="9%" style="padding-left: 5%;"><span style="padding-left: 2%; font-family: Poppins; font-size: 12; font-weight: 500;">{{vehicle.no_of_seats}} seater</span>
+                                </div>
+                            </span>
+                            <div style="display: flex; justify-content: center; margin-right: 5%; width: 50%; height: 25%;">
+                                <div style="font-size: 29; font-weight: bold; margin-left: 8%;" >
+                                    <hr>BOOKING DETAILS<hr>
+                                </div>
+                           </div>
+                        </div>
+                        <div style="display: flex; width: 57%; height: 20%; margin-left: 40%; margin-top: -15%;">
+                            <div style="width: 35%; height: 50%;  margin-top: 3%; font-family: Poppins; font-weight: 500; font-size: 15;">
+                                {{userdata.startdate}}
+                            </div>
+                            <div style="margin-left: 14%; margin-top: 3%;">
+                                <img src="/static/toicon.svg" width="40">
+                            </div>
+                            <div style="width: 35%; height: 50%; margin-top: 3%; font-family: Poppins; font-weight: 500; margin-left: 14%; font-size: 15;">
+                                {{userdata.enddate}}
+                            </div>
+                        </div>
+                        <div style="display: flex; width: 30%; height: 15%; margin-left: 55%;">
+                            <div style="display: flex; width: 60%; height: 50%; margin-top: 3%; margin-left: 20%; justify-content: center; align-items: center;">
+                                {{userdata.days}}
+                            </div>
+                        </div>
+                        <div style="display: flex; width: 30%; height: 12%; margin-left: 55%;">
+                            <div style="display: flex; width: 60%; height: 50%; margin-top: 3%; margin-left: 20%; justify-content: center; align-items: center;">
+                                <b>{{userdata.city}}</b>
+                            </div>
+                        </div>
+                        <span style="display: flex; margin-left: 53%;"> <b>Pricing Plan : Includes 432 km , excluded fuel</b></span><br>
+
+                        <div>
+                            <img src="/{{vehicles.picture}}" style="height: 25% ; width: 15%; margin-left: 2%;"  alt="">
+                            <img src="/{{vehicles.picture2}}" style="height: 25% ; width: 15%;  margin-left: 2%;"  alt="">
+                            <img src="/{{vehicles.picture3}}" style="height: 25% ; width: 15%; margin-left: 2%;" >
+                            <img src="/{{vehicles.picture4}}" style="height: 25% ; width: 15%;  margin-left: 2%;"  alt="">
+                            <img src="/{{vehicles.picture5}}" style="height: 25% ; width: 15%;  margin-left: 2%;"  alt="">
+                        </div>
+
+
+                    
+                    </div>
+                    <div class="subdivsecond" style="margin-top: 3%; ">
+                        <div style="font-size: 25; display: flex; justify-content: center; width: 90%; height: 13%; margin-left: 13%; margin-top: 3px;">
+                            <div style="width: 70%; height: 60%; margin-top: 2%; font-family: Poppins; font-weight: bold; font-size: 28;">IMPORTANT POINT TO REMEMBER</div>
+                        </div><hr>
+                        <div style="width: 98%; height: 55%;  display: flex; margin-left: 2%; font-size: 14p;">
+                            <table>
+                                <tr>
+                                  <td>CHANGE IN PRICING PLAN:</td>  
+                                  <td>The pricing plan (6 kms/hr, without fuel) cannot be changed after the booking is made</td>
+                                </tr>
+                                <tr>
+                                    <td>FUEL:</td>
+                                    <td>In case you are returning the car at a lower fuel level than what was received, we will charge a flat Rs 500 refuelling service charge + actual fuel cost to get the tank to the same level as what was received</td>
+                                </tr>
+                                <tr>
+                                    <td>TOLLS, PARKING, INTER-STATE TAXES:</td>
+                                    <td>To be paid by you.</td>
+                                </tr>
+                                    <td>ID VERIFICATION:</td>
+                                    <td>Please keep your original Driving License handy. While delivering the car to you, our executive will verify your original Driving License and ID proof (same as the ones whose details were provided while making the booking). This verification is mandatory. In the unfortunate case where you cannot show these documents, we will not be able to handover the car to you, and it will be treated as a late cancellation (100% of the fare would be payable). Driving license printed on A4 sheet of paper (original or otherwise) will not be considered as a valid document.</td>
+                                </tr>
+                                <tr>
+                                    <td>PRE-HANDOVER INSPECTION:</td>
+                                    <td>Please inspect the car (including the fuel gauge and odometer) thoroughly before approving the checklist.</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="rigntdiv">
+                    <form action="/api/usersignup">
+
+                    <div style="font-size: 25px; font-family: Poppins; font-weight: 600; margin-top: 4%;">
+                        <center>
+                            Fare Details
+                        </center><hr>
+                    </div>
+                   <div style="display: flex; width: 90%; margin-left: 5%;">
+                        <table width="100%"  cellspacing="1" cellpadding="2">
+                            <tr>
+                                <td>Price</td>
+                                <td><b>&#8377</b>&nbsp;{{userdata.amount}}</td>
+                            </tr>
+                            <tr>
+                                <td>Doorstep Delivary & pickup</td>
+                                <td><b>&#8377</b>&nbsp;600</td>
+                            </tr>
+                            <tr>
+                                <td>Insurance & GST</td>
+                                <td>Insured</td>
+                            </tr>
+                            <tr>
+                                <td>Refunadable Security Deposit</td>
+                                <td><b>&#8377</b>&nbsp;600</td>
+                            </tr>
+                        </table>
+                   </div><hr>
+                   <div style="display: flex; width: 90%; height: 3%; margin-left: 5%;">
+                        <div style="width: 30%; height: 60%;  margin-top: 2%; font-family: Poppins; font-weight: 500; justify-content: center; display: flex; align-items: center; font-size: 25;">
+                            Total
+                        </div>
+                        <div style="width: 30%; height: 60%; margin-top: 2%; font-family: Poppins; font-weight: 500; justify-content: center; display: flex; align-items: center; font-size: 20; margin-left: 40%;">
+                            <b>&#8377</b>&nbsp;{{userdata.netamount}}
+                        </div>
+                   </div><hr>
+                   <div style="display: flex; width: 90%; margin-left: 5%;">
+                        <table width="100%" cellspacing="1" cellpadding="2">
+                            <tr>
+                                <td>Kms limit</td>
+                                <td>600 Kms</td>
+                            </tr>
+                            <tr>
+                                <td>Fuel</td>
+                                <td>Excluded</td>
+                            </tr>
+                            <tr>
+                                <td>Extra Kms Charge</td>
+                                <td><b>&#8377</b>&nbsp;9/kms<td>
+                            </tr>
+                        </table>
+                   </div><br>
+                   <center>
+                    <input type="submit" class="proceed-btn" value="Proceed"/>
+                   </center>
+                </div>
+                </div>
+            </form>
+            </div>
+        </div>
+        <!-- The Modal -->
+        
+                <!-- Modal Header -->
+                
+        
+                <!-- Modal body -->
+                
+            </div>
+        </div>
+    <!-- </body>
+    <script type="text/javascript" src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script type="text/javascript">
+        function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+        $(document).ready(function(){
+            rupee="{{userdata.netamount}}"
+            var options = {
+                "key": "rzp_test_GQ6XaPC6gMPNwH", // Enter the Key ID generated from the Dashboard
+                "amount": rupee*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise or INR 500.
+                "currency": "INR",
+                "name": "PayNRent",
+                "description": "Ecommerce",
+                "image": "http://localhost:8000/static/Logo1.png", // Company Logo
+                "theme": {
+                    "color": "#15b8f3"
+                },
+                "prefill": {
+                    "name": "Suyash",
+                    "email": "2021cs7su@mitsgwl.ac.in",
+                    "contact": "8982994678"
+                },
+                "notes": {
+                    "address": "City Center"
+                }, 
+                "handler": function (response){
+                    alert(response.razorpay_payment_id);
+
+                    // AFTER TRANSACTION IS COMPLETE YOU WILL GET THE RESPONSE HERE
+                },
+                "modal": {
+                    "ondismiss": function () {
+                        if (confirm("Are you sure, you want to close the form?")) {
+                            txt = "You pressed OK!";
+                            console.log("Checkout form closed by the user");
+                        }
+                        else {
+                            txt = "You pressed Cancel!";
+                            console.log("Complete the Payment")
+                        }
+                    }
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            document.getElementById('rzp-button1').onclick = function (e) {
+                if(email_address.value.length == 0 || mobile_no.value.length == 0 || otp.value.length == 0){
+                    alert("You Miss to fill The Mobile Number or Email Address or otp")
+                }
+                else{
+                    rzp1.open();
+                    e.preventDefault();
+                }
+            }
+            
+        });
+        
+
+    </script>  -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var otp = ''
+            function generateOTP(){
+                otp=parseInt((Math.random()*8999)+1000)
+                alert(otp)
+            }
+            $('#otpbtn').click(function(){
+                generateOTP()
+            })
+            
+            rupee = "{{userdata.netamount}}"
+            var options = {
+                "key": "rzp_test_GQ6XaPC6gMPNwH", // Enter the Key ID generated from the Dashboard
+                "amount": rupee*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise or INR 500.
+                "currency": "INR",
+                "name": "PayNRent",
+                "description": "Ecommerce",
+                "image": "http://localhost:8000/static/Logo1.png", // Company Logo
+                "theme": {
+                    "color": "#15b8f3"
+                },
+                "prefill": {
+                    "name": "Ansh",
+                    "email": "ss@gmail.com",
+                    "contact": "8982994678"
+                },
+                "notes": {
+                    "address": "City Center"
+                },
+                "handler": function (response) {
+                    alert(response.razorpay_payment_id);
+    
+                    // AFTER TRANSACTION IS COMPLETE YOU WILL GET THE RESPONSE HERE
+                },
+                "modal": {
+                    "ondismiss": function () {
+                        if (confirm("Are you sure, you want to close the form?")) {
+                            txt = "You pressed OK!";
+                            console.log("Checkout form closed by the user");
+                        }
+                        else {
+                            txt = "You pressed Cancel!";
+                            console.log("Complete the Payment")
+                        }
+                    }
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            document.getElementById('rzp-button1').onclick = function (e) {
+                var email = $('#emailaddress').val()
+                var mob = $('#mobilenum').val()
+                var uotp = $('#userotp').val()
+                var nme = $('#username').val()
+                if (email.length == 0 || mob.length == 0 || uotp.length == 0) {
+                    alert("You Miss to fill The Mobile Number or Email Address")
+                }
+                else {
+                    if( userotp.value == otp){
+                        console.log(nme)
+                        console.log(mob)
+                        console.log(email)
+                        console.log(uotp)
+                        rzp1.open();
+                        e.preventDefault();
+                    }
+                    else{
+                        alert("Invalid OTP")
+                    }
+                }
+            }
+            // document.getElementById('gsignin').onclick = function( ){
+            //     function onSignIn(googleUser) {
+            //     var profile = googleUser.getBasicProfile();
+            //     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            //     console.log('Name: ' + profile.getName());
+            //     console.log('Image URL: ' + profile.getImageUrl());
+            //     console.log('Email: ' + profile.getEmail()); }
+
+            // }
+            // This is null if the 'email' scope is not present.
+
+
+
+            // function SignIn(){
+            //     let oauth2Endpoint = "https://accounts.google.com/o/oauth/v2/auth"
+                
+            //     let form = document.createElement('form')
+            //     form.setAttribute('method', 'GET')
+            //     form.setAttribute('action', oauth2Endpoint)
+
+            //     let params = {
+            //         "client_id":"750338901270-tkit5thptcv676re2jbe8grdv6o2laqf.apps.googleusercontent.com",
+            //         "redirect_url":"http://127.0.0.1:5500/paynrentapp/templates/practice.html",
+            //         "response_type":"token",
+            //         "scope":"https://www.goog;eapis.com/auth/userinfo.profile",
+            //         "include_granted_scopes":'true',
+            //         "state":'pass-through-value'
+            //     }
+            //     for (var p in params){
+            //         let input = document.createElement('input')
+            //         input.setAttribute('type','hidden')
+            //         input.setAttribute('name', p)
+            //         input.setAttribute('value', params[p])
+            //         form.appendChild(input)
+
+            //     }
+            //     document.body.appendChild(form)
+            //     form.submit() 
+            // }
+
+        });
+    </script>
+   
+</html>

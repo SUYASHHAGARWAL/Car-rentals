@@ -1,0 +1,339 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4070f4;
+    column-gap: 30px;
+}
+.form{
+    position: absolute;
+    max-width: 500px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    background: #FFF;
+}
+.form.signup{
+    opacity: 0;
+    pointer-events: none;
+}
+.forms.show-signup .form.signup{
+    opacity: 1;
+    pointer-events: auto;
+}
+.forms.show-signup .form.login{
+    opacity: 0;
+    pointer-events: none;
+}
+header{
+    font-size: 28px;
+    font-weight: 600;
+    color: #232836;
+    text-align: center;
+}
+form{
+    margin-top: 30px;
+}
+
+.form .field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+.field input,
+.field button{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 15px;
+}
+.field input{
+    outline: none;
+    padding: 0 15px;
+    border: 1px solid#CACACA;
+}
+.field input:focus{
+    border-bottom-width: 2px;
+}
+.eye-icon{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #8b8b8b;
+    cursor: pointer;
+    padding: 5px;
+}
+.field button{
+    color: #fff;
+    background-color: #0171d3;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.field button:hover{
+    background-color: #016dcb;
+}
+.form-link{
+    text-align: center;
+    margin-top: 10px;
+}
+.form-link span,
+.form-link a{
+    font-size: 14px;
+    font-weight: 400;
+    color: #232836;
+}
+.form a{
+    color: #0171d3;
+    text-decoration: none;
+}
+.form-content a:hover{
+    text-decoration: underline;
+}
+.line{
+    position: relative;
+    height: 1px;
+    width: 100%;
+    margin: 36px 0;
+    background-color: #d4d4d4;
+}
+
+.media-options a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+a.facebook{
+    color: #fff;
+    background-color: #4267b2;
+}
+a.facebook .facebook-icon{
+    height: 28px;
+    width: 28px;
+    color: #0171d3;
+    font-size: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+.facebook-icon,
+img.google-img{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+img.google-img{
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+}
+a.google{
+    border: 1px solid #CACACA;
+}
+a.google span{
+    font-weight: 500;
+    opacity: 0.6;
+    color: #232836;
+}
+@media screen and (max-width: 400px) {
+    .form{
+        padding: 20px 10px;
+    }
+    
+}
+</style>
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+    <html lang="en">
+    <head>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Responsive Login and Signup Form </title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <meta name="google-signin-client_id" content="750338901270-tkit5thptcv676re2jbe8grdv6o2laqf.apps.googleusercontent.com">
+ 
+        <!-- Boxicons CSS -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+                 
+    </head>
+    <body>
+        <section class="container forms" >
+            <img src="/static/userbg1.jpg" width="100%" alt="">
+            <div class="form login">
+                <div class="form-content">
+                    <header>Login here</header>
+                    <form action="/api/checkuserlogin" method="get">
+                        <div class="field input-field">
+                            <input type="text" id="mobileno" name="mobileno" placeholder="Email or Mobile" class="input">
+                        </div>
+                        
+                        <div class="field input-field">
+                            <input type="password" placeholder="Password"  id="password" name="password" class="password">
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+                        <div class="form-link">
+                            <a href="#" class="forgot-pass">Forgot password?</a>
+                        </div>
+                        <div class="field button-field">
+                            <button id="rzp-button1">Login</button>
+                        </div>
+                    </form>
+                    <div class="form-link">
+                        <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
+                    </div>
+                    <div class="col-md-12" style="display: flex; align-items: center;justify-content: center; padding-top: 15;">
+                        <span style="font-size: medium; font-weight: bold; color: crimson;">{{message}}</span>
+                      </div>
+                </div>
+                
+                
+            </div>
+            <!-- Signup Form -->
+            <div class="form signup">
+                <div class="form-content">
+                    <header>Register yourself </header>
+                    <form action="/api/userdataindb" method="post">
+
+                        <div class="g-signin2" id="gsignin" data-onsuccess="onSignIn"></div>
+
+                        <div class="field input-field">
+                            <input type="text" placeholder="name" id="Username" name="Username" >
+                        </div>
+                        <div class="field input-field">
+                            <input type="text" placeholder="Email" id="UserEmail" name="UserEmail" >
+                        </div>
+                        <div class="field input-field">
+                            <input type="password" placeholder="Password" id="password" name="password" >
+                        </div>
+                        <hr style="width:100%; padding: 4px;border-top:1px solid black; margin-top: 15px;">
+                        <div class="field input-field">
+                            <input type="text" placeholder="Mobile Number" id="mobileno" name="mobileno" required>
+                        </div>
+                        <div class="field input-field">
+                            <input type="text" placeholder="Aadhar Number" id="AadharNumber" name="AadharNumber" required>
+                        </div>
+                        <div class="field input-field">
+                            <input type="text" placeholder="licence Number" id="licenceNumber" name="licenceNumber" required>
+                            <!-- <i class='bx bx-hide eye-icon'></i> -->
+                        </div>
+                        <div class="field input-field">
+                            <input type="password" placeholder="OTP" id="userotp" name="userotp">
+
+                        </div>
+                        <div class="field button-field">
+                            <button type="submit" >Signup</button>
+                        </div>
+                    </form>
+                    <div class="form-link">
+                        <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+                    </div>
+                </div>
+                <div class="col-md-12" style="display: flex; align-items: center;justify-content: center; padding-top: 15;">
+                    <span style="font-size: medium; font-weight: bold; color: crimson;">{{message}}</span>
+                  </div>
+                
+            </div>
+        </section>
+        <!-- JavaScript -->
+        <script >
+            const forms = document.querySelector(".forms"),
+      pwShowHide = document.querySelectorAll(".eye-icon"),
+      links = document.querySelectorAll(".link");
+pwShowHide.forEach(eyeIcon => {
+    eyeIcon.addEventListener("click", () => {
+        let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+        
+        pwFields.forEach(password => {
+            if(password.type === "password"){
+                password.type = "text";
+                eyeIcon.classList.replace("bx-hide", "bx-show");
+                return;
+            }
+            password.type = "password";
+            eyeIcon.classList.replace("bx-show", "bx-hide");
+        })
+        
+    })
+})      
+links.forEach(link => {
+    link.addEventListener("click", e => {
+       e.preventDefault(); //preventing form submit
+       forms.classList.toggle("show-signup");
+    })
+})
+        </script>
+    </body>
+</html>
+<script>
+    var options = {
+        "key": "rzp_test_zbAYSOuyXBJihQ", // Enter the Key ID generated from the Dashboard
+        "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "Rentals",
+        "description": "Purchase Transaction",
+        "image": "https://example.com/your_logo",
+        "order_id": "order_IluGWxBm9U8zJ8", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        
+        "prefill": {
+            "name": "Gaurav Kumar",
+            "email": "gaurav.kumar@example.com",
+            "contact": "9000090000"
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
+        },
+                "handler": function (response) {
+                    alert(response.razorpay_payment_id);
+    
+                    // AFTER TRANSACTION IS COMPLETE YOU WILL GET THE RESPONSE HERE
+                },
+                "modal": {
+                    "ondismiss": function () {
+                        if (confirm("Are you sure, you want to close the form?")) {
+                            txt = "You pressed OK!";
+                            console.log("Checkout form closed by the user");
+                        }
+                        else {
+                            txt = "You pressed Cancel!";
+                            console.log("Complete the Payment")
+                        }
+                    }
+                }
+    };
+    var rzp1 = new Razorpay(options);
+  
+    document.getElementById('rzp-button1').onclick = function(e){
+        alert(1)
+        rzp1.open();
+        e.preventDefault();
+    }
+
+
+
+
+    </script>
