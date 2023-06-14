@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<head>
+  <link rel="stylesheet" href="/static/css/DisplaySelectedVehicle.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="row">
+  <div class="column1" style="background-color:#ecf0f1;">
+    <h2>{{vehicle.companyname}} {{vehicle.subcategoryname}}</h2>
+    
+     <div class="row">
+      <div class="lcolumn">
+        <img src="/{{vehicle.icon}}" width='100%'>
+        <div>
+          <div style="margin-left: 5%; font-family: Poppins; font-size: 10; font-weight: 600;">
+            <img src="/static/iconDiesel.svg" width="4%"><span style="padding-left: 2%; font-family: Poppins; font-size: 12; font-weight: 500;">{{vehicle.fuel_type}}</span>
+            <img src="/static/iconTransmission.svg" width="11%" style="padding-left: 6%;"><span style="padding-left: 2%; font-family: Poppins; font-size: 12; font-weight: 500;">{{vehicle.transmission_type}}</span>
+            <img src="/static/iconSeat.svg" width="10%" style="padding-left: 5%;"><span style="padding-left: 2%; font-family: Poppins; font-size: 12; font-weight: 500;">{{vehicle.no_of_seats}} Seats</span>
+        </div>
+       
+        </div>
+      </div>
+      <div class="rcolumn">
+        <!-- <h2>This is two</h2> -->
+        <center>
+        <h2>BOOKING DETAILS</h2>
+      </center>
+            
+              <hr>
+            <div class="row">
+              <div class="rcol">
+                <div style="justify-content: center;align-items: center; display: flex; width:200; font-family: Poppins;font-size: 16;">{{userdata.starttime}}   </div>
+              </div>
+
+              <div class="lcol">
+                <div style="justify-content: center;align-items: center; display: flex; width:200; font-family: Poppins;font-size: 16;">{{userdata.endtime}}   </div>
+
+              </div>
+            </div>
+            <div><center>{{userdata.days}}</center></div>
+             <div><center>{{userdata.city}}</center></div>
+             <div><center>Pricing Plan: Includes 438 kms, excludes fuel
+              Change plan</center></div>
+      </div>
+ <div>
+       
+</p>
+
+</div>
+    </div>
+     
+  </div>
+  <div class="column2" style="background: #ecf0f1;">
+     <center>
+    <h2>FARE DETAILS</h2>
+  </center>
+            <hr> 
+            <table>
+                <!-- <tr>
+                  <th>Firstname</th>
+                  
+                  <th>Savings</th>
+                </tr> -->
+                 <tr>
+                  <td>Base FARE</td>
+                  
+                  <td>&#8377;{{userdata.amount}}</td>
+                </tr>
+                 <tr>
+                    <td>Delivery and pickup charges</td>
+                    
+                    <td>&#8377;400</td>
+                  </tr>
+                  <tr>
+                    <td>Refundable and security Deposit</td>
+                    
+                    <td>&#8377;2500</td>
+                  </tr>
+                  
+                  
+                  <tr>
+                    <td><b>Total</b></td>
+                    
+                     
+                    <td>&#8377;{{userdata.netamount}}</td>
+                    
+                  </tr>
+  
+                  <tr>
+                    <td>Kms Limit</td>
+                    
+                    <td>438Kms</td>
+                  </tr>
+                   <tr>
+                      <td>Fuel</td>
+                      
+                      <td>Excluded</td>
+                    </tr>
+                    <tr>
+                      <td>Extra Kms charge</td>
+                      
+                      <td>14Km/hr</td>
+                    </tr>
+                    <tr>
+                        <td>Tolls,Parking,Inter-State Taxes</td>
+                        
+                        <td>To Be paid by You</td>
+                      </tr>
+                    <tr>
+                
+                </table>
+                <center>
+                <button class="proceed-btn">Proceed</button>
+            </center>
+  
+      
+      
+  </div>
+
+  <div class="column3" style="background: #ecf0f1;;">
+    <!-- <h2>Column 1</h2>
+    <h2>IMPORTANT POINTS TO REMEMBER</h2>
+            <hr> -->
+            <h2>IMPORTANT POINTS TO REMEMBER</h2>
+            <hr> 
+<!-- <p>Set the width of the table, and the height of the table header row:</p> -->
+
+<table>
+  <!-- <tr>
+    <th>Firstname</th>
+    
+    <th>Savings</th>
+  </tr> -->
+   <tr>
+    <td>CHANGE IN PRICING PLAN:</td>
+    
+    <td>The pricing plan (6 kms/hr, without fuel) cannot be changed after the booking is made</td>
+  </tr>
+  <tr>
+    <td>FUEL:</td>
+    
+    <td>In case you are returning the car at a lower fuel level than what was received, we will charge a flat Rs 500 refuelling service charge + actual fuel cost to get the tank to the same level as what was received</td>
+  </tr>
+  <tr>
+    <td>TOLLS, PARKING, INTER-STATE TAXES:</td>
+    
+    <td>To be paid by you.</td>
+  </tr>
+  
+    <td>ID VERIFICATION:</td>
+    
+    <td>Please keep your original Driving License handy. While delivering the car to you, our executive will verify your original Driving License and ID proof (same as the ones whose details were provided while making the booking). This verification is mandatory. In the unfortunate case where you cannot show these documents, we will not be able to handover the car to you, and it will be treated as a late cancellation (100% of the fare would be payable). Driving license printed on A4 sheet of paper (original or otherwise) will not be considered as a valid document.</td>
+  </tr>
+  <tr>
+    <td>PRE-HANDOVER INSPECTION:</td>
+    
+    <td>Please inspect the car (including the fuel gauge and odometer) thoroughly before approving the checklist.</td>
+  </tr>
+  
+
+
+</table>
+            
+            
+            
+
+
+</div>
+<!-- <div class="row">
+  <div class="column1" style="background-color:#3e8e41;">
+    <h2>Column 1</h2>
+    <p>Some text..</p>
+  </div>
+</div> -->
+
+
+</body>
+</html>

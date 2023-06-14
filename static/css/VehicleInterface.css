@@ -1,0 +1,34 @@
+.maincontainer{
+    width: 100%;
+    height: 100%;
+    background: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+overflow-x: scroll;
+}
+.box{
+    background: #fff;
+    width: 80vw;
+    height: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-y: scroll;
+overflow-x: scroll;
+margin-top: 5%;
+margin-bottom: 2%;
+}
+.headingtext{
+    font-size: 22px;
+    font-family: Poppins;
+    font-weight: bold;
+    padding: 5px;
+    letter-spacing: 1px;
+}
+.labelstyle{
+    font-size: 15px;
+    font-family: Poppins;
+    font-weight: bold;
+    letter-spacing: 1px;
+}

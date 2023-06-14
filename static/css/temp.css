@@ -1,0 +1,168 @@
+.maincontainer{
+    background:#ecf3f8;
+    display: flex;
+    width: 100%;
+    height: 200%;
+    flex-direction: column;
+    overflow-y: hidden;
+    
+}
+
+.appbar{
+   background: #fff; 
+   width: 100%;
+   height: 60px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   box-shadow: 10px 10px 5px gray;    
+   
+}
+.sidebox{
+   width: 100%;
+   height: 200%;
+   background: #fff;
+   border-radius: 10px;
+   display: flex;
+   margin-top: 3px;
+  
+  }
+  .smallbox{
+   width: 300px;
+   height: 300px;
+   background: #fff;
+   border-radius: 15px;
+   display: flex;
+   margin-top: 35px;
+   
+  
+  }   
+
+  .textstyle{
+   
+   margin-left: 30%;
+   margin-top: 10px;
+   white-space:nowrap;
+   
+ 
+}
+.leftboxtextstyle{
+   border: none;
+   outline: none;
+   font-family: Poppins;
+   font-weight: bold;
+   font-size: 18px;
+   margin-left: 30%;
+   margin-top: 10px;
+   white-space:nowrap;
+   
+ 
+}
+.spaces{
+   margin-right: 130px;
+}
+.margincheckbox{
+   
+   margin-top: 10px;
+}
+.checkboxtextstyle{
+   border: none;
+   outline: none;
+   font-size: 15px;
+   font-family: Poppins;
+   white-space:nowrap;
+
+}
+.connect-us-links {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   display: flex;
+   align-items: center
+}
+
+.listtextstyle{
+
+   border: none;
+   outline: none;
+   font-size: 12px;
+   font-family: Poppins;
+   margin-top: 10px;
+   
+
+
+   
+}
+.div2textstyle{
+   border: none;
+   outline: none;
+   font-weight: bold;
+   font-family: Poppins;
+   font-size: 20px;
+   margin-top: 30px;
+   
+}
+
+.sortbyalign{
+   margin-top: 35px;
+   margin-left: 350px;
+   
+}
+.imgcenter{
+   margin-left: 40px;
+   margin-top: 10px;
+}
+.smallboxcontentalign{
+   margin-left: 20px;
+   margin-top: 10;
+   
+}
+.smallboxcontentalign-1{
+   margin-left: 20px;
+
+   border: none;
+   outline: none;
+   font-family: Poppins;
+   font-size: 14px;
+
+}
+.smallboxcontentalign-2{
+   margin-left: 10px;
+   margin-top: 10;
+   border: none;
+   outline: none;
+   font-family: Poppins;
+   font-size: 14px;
+
+}
+.smallboxfont{
+   border: none;
+   outline: none;
+   font-family: Poppins;
+   font-size: 12px;
+
+}
+
+.smallboxfont-1{
+   border: none;
+   outline: none;
+   font-family: Poppins;
+   font-size: 30px;
+   font-weight: bolder;
+
+}
+
+.button_style{
+   width: 110px;
+   height: 45px;;
+   background-image: linear-gradient(to left, rgb(28, 171, 162) 25%, rgb(28, 127, 171));
+   border-radius: 10px; 
+   text-align: center;
+   font-family: Poppins;
+   font-weight: bolder; 
+   font-size: 18px; 
+   border: none; 
+   margin-left: 75px;
+   color: #fff;
+   
+}

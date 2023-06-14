@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    background: #ecf0f1;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column1 {
+    float: left;
+    width: 70%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+    /* border-radius: 5px; */
+    font-size: 14px;
+    font-family: Poppins;
+    background: #ecf0f1;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  .column3 {
+    float: left;
+    width: 70%;
+    padding: 10px;
+    height: 500px; /* Should be removed. Only for demonstration */
+    /* border-radius: 5px; */
+    font-size: 14px;
+    font-family: Poppins;
+    background: #ecf0f1;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  
+  }
+  .lcolumn {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 200px; /* Should be removed. Only for demonstration */
+    /* border-radius: 5px; */
+    font-size: 14px;
+    font-family: Poppins;
+    background: #ecf0f1;
+  }
+  .rcolumn {
+    float: right;
+    width: 70%;
+    padding: 10px;
+    height: 200px; /* Should be removed. Only for demonstration */
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Poppins;
+    background: #ecf0f1;
+  }
+  
+  .lcol {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 50px; /* Should be removed. Only for demonstration */
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Poppins;
+    background: #ecf0f1;
+  }
+  .rcol {
+    float: right;
+    width: 50%;
+    padding: 10px;
+    height: 50px; /* Should be removed. Only for demonstration */
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Poppins;
+    background: #ecf0f1;
+  }
+  
+  .column2 {
+    float: right;
+    width: 28%;
+    padding: 10px;
+    height: auto; /* Should be removed. Only for demonstration */
+    font-size: 14px;
+    font-family: Poppins;
+    background: #ecf0f1;
+    margin:2px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  } 
+  
+  
+    hr {
+      border: none;
+      height: 2px;
+      background-color: #ccc;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    table, td, th {
+    border: 0px solid grey;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px;
+  }
+  
+  th {
+    height: 5px;
+  }
+  .proceed-btn {
+    background-color: #2e86de; /* Green background color */
+    border: none; /* Remove border */
+    color: white; /* White text color */
+    padding: 12px 24px; /* Add padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as block element */
+    font-size: 16px; /* Font size */
+    margin: 10px; /* Add margin */
+    cursor: pointer; /* Add cursor on hover */
+    border-radius: 4px; /* Rounded corners */
+    font-weight: bold;
+  }
+  
+  .proceed-btn:hover {
+    background-color: #48dbfb; /* Darker green background color on hover */
+  }
+  
+  

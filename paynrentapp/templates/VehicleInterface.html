@@ -1,0 +1,188 @@
+
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/css/VehicleInterface.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+        <script src="/static/category.js"></script>
+        <style>
+            .ui-datepicker-calendar {
+                display: none;
+            }
+        </style>
+<script type="text/javascript">
+         $(function () {
+            $('.year').datepicker({
+         minViewMode: 2,
+         format: 'yyyy'
+       }).on('changeDate', function(e){
+    $(this).datepicker('hide');
+});
+         });
+      </script>
+    
+    </head>
+    <div class="maincontainer">
+        <div class="box">
+            <form action="/api/vehiclesubmit" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <div class="col-md-12 headingtext">
+                    <img src="/static/logo.png" style="width: 60px; height: 50px; padding-right: 8px;">
+                    Vehicle Details
+                    <a href="/api/vehicledisplay" style="text-decoration: none; padding-left: 400;" ><img src="/static/list.png" width="50" /></a>
+                </div>
+                <div class="row g-3" style="margin-top: 15px;">
+                    <div class="col-md-4">
+                        <label for="categoryid" class="form-label labelstyle">Category Id</label>
+                        <select required  name="categoryid" id="categoryid" class="form-select">
+                        </select>
+
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="subcategoryid" class="form-label labelstyle">Sub Category Id</label>
+                        <select required type="text" name="subcategoryid" id="subcategoryid" class="form-select">
+                        </select>    
+                    </div>
+                    <div class="col-md-4">
+                        <label for="modelyear" class="form-label labelstyle">Model Year</label>
+                        <input required  type="text" name="modelyear"  class="year form-control">
+                    </div>
+                </div>
+                <div class="row g-3" style="margin-top: 7px;">
+                    <div class="col-md-4">
+                        <label for="variant" class="form-label labelstyle">Varient</label>
+                        <input required type="text" name="variant" id="variant" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="price" class="form-label labelstyle">Price</label>
+                        <input required type="text" name="price" id="price" class="form-control">
+                    </div>
+                   <div class="col-md-4">
+                        <div class="labelstyle">Insured</div>
+                        <div class="row g-2"  style="display: flex; justify-content: space-evenly; flex-direction: row;">
+                            <div class="col-md-2 form-check" style="padding-top: 8px;">
+                                <input class="form-check-input" type="radio" value="Yes" name="insured" id="insured">
+                                <label class="form-check-label" for="insured">
+                                  Yes
+                                </label>
+                            </div>
+                            <div class="col-md-2 form-check" style="padding-top: 8px;" >
+                                <input class="form-check-input" type="radio" value="No" name="insured" id="insured">
+                                <label class="form-check-label" for="insured">
+                                  No
+                                </label>
+                            </div>
+                        </div>
+                   </div>
+                   
+                </div>
+                <div class="row g-3" style="margin-top: 7px;">
+                    <div class="col-md-4">
+                        <label for="registrationno" class="form-label labelstyle">RegisTration Number</label>
+                        <input required type="text" name="registrationno" id="registrationno" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="ownername" class="form-label labelstyle">Owner Name</label>
+                        <input required type="text" name="ownername" id="ownername" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="mobilenoo" class="form-label labelstyle">Mobile Number</label>
+                        <input required type="text" name="mobileno" id="mobileno" class="form-control">
+                    </div>
+                </div>
+                <div class="row g-3" style="margin-top: 7px;">
+                    <div class="col-md-4">
+                        <label for="color" class="form-label labelstyle">Colour</label>
+                        <input required type="text" name="color" id="color" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="fueltype" class="form-label labelstyle">Fuel Type</label>
+                        <select required  name="fueltype" id="fueltype" class="form-select">
+                            <option>-Select Fuel-</option>
+                            <option>Petrol</option>
+                            <option>Diesel</option>
+                            <option>CNG</option>
+                            <option>EV</option>
+                        </select>    
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="no_of_seats" class="form-label labelstyle">No. of Seats</label>
+                        <input required type="number" value="2" min="2" max="20" name="no_of_seats" id="no_of_seats" class="form-control">
+                    </div>
+                </div>
+                <div class="row g-3" style="margin-top: 7px;">
+                    <div class="col-md-4">
+                        <div class="labelstyle">Transmission</div>
+                        <div class="row g-2"  style="display: flex; justify-content: space-evenly; flex-direction: row;">
+                            <div class="col-md-2 form-check" style="padding-top: 8px;">
+                                <input class="form-check-input" type="radio" value="Automatic" name="transmissiontype" id="transmissiontype">
+                                <label class="form-check-label" for="transmissiontype">
+                                  Automatic
+                                </label>
+                            </div>
+                            <div class="col-md-2 form-check" style="padding-top: 8px;" >
+                                <input class="form-check-input" type="radio" value="Manual" name="transmission_type" id="transmission_type">
+                                <label class="form-check-label" for="transmissiontype">
+                                  Manual
+                                </label>
+                            </div>
+                        </div>
+                   </div>
+                   <div class="col-md-4">
+                    <label for="formFile" class="form-label labelstyle">Vehicle Image Front</label>
+                    <input required class="form-control" type="file" name="picture" id="formFile">
+                </div>
+                <div class="col-md-4">
+                    <label for="formFile" class="form-label labelstyle">Vehicle Image Side 1</label>
+                    <input required class="form-control" type="file" name="picture2" id="formFile">
+                </div>
+                <div class="col-md-4">
+                    <label for="formFile" class="form-label labelstyle">Vehicle Image Side 2</label>
+                    <input required class="form-control" type="file" name="picture3" id="formFile">
+                </div>
+                <div class="col-md-4">
+                    <label for="formFile" class="form-label labelstyle">Vehicle Image Back</label>
+                    <input required class="form-control" type="file" name="picture4" id="formFile">
+                </div>
+                <div class="col-md-4">
+                    <label for="formFile" class="form-label labelstyle">Vehicle Image Inside</label>
+                    <input required class="form-control" type="file" name="picture5" id="formFile">
+                </div>
+                    <div class="col-md-4">
+                        <label for="agencyid" class="form-label labelstyle">{{data.Agencyname}}</label>
+                        <input required type="text" value="{{data.id}}"  name="agencyid" id="agencyid" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="city" class="form-label labelstyle">city</label>
+                        <input required type="text" value="{{data.city}}" type="text" name="city" id="city" class="form-control">
+                    </div>
+                </div>
+               <div class="row g-2" style="margin-top: 10px;">
+                
+                <div class="col-md-4" style="display: flex; align-items: center;justify-content: center; ">
+                    <button style="width: 75%;" type="submit" class="btn btn-primary labelstyle">Submit</button>
+                    
+                </div>
+                <div class="col-md-4" style="display: flex; align-items: center;justify-content: center;">
+                    <button style="width: 75%;" type="reset" class="btn btn-primary labelstyle">Reset</button>
+                </div>
+                <div class="col-md-12 labelstyle" style="display: flex; align-items: center;justify-content: center; margin-top: 5px;">
+                    <span style="font-weight: bold;">{{message}}</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</html>

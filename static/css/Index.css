@@ -1,0 +1,96 @@
+.maincontainer {
+    background: #f5f6fa;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.appbar {
+    background: #fff;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.slidebox {
+    width: 500px;
+    height: 450px;
+    background: #fff;
+    border-radius: 10px;
+    margin: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image_center {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 400px;
+    height: 50px;
+    border: 1px solid #778ca3;
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: none;
+}
+
+.centerAlign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxleft {
+    width: 200px;
+    height: 50px;
+    border: 1px solid #778ca3;
+    border-radius: 0px 0px 0px 10px;
+    border-right: none;
+}
+
+.boxright {
+    width: 200px;
+    height: 50px;
+    border: 1px solid #778ca3;
+    border-radius: 0px 0px 10px 0px;
+}
+
+.button_style {
+    width: 400px;
+    height: 50px;
+    border: 1px solid #778ca3;
+    border-radius: 10px;
+    margin-top: 30px;
+    background: linear-gradient(270deg, rgb(28, 171, 162) 25%, rgb(28, 127, 171));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textStyle {
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: 24;
+    text-align: left;
+    margin: 2px;
+}
+
+.datetextstyle {
+    border: none;
+    outline: none;
+    width: 180px;
+    font-weight: bold;
+    font-size: 20;
+    text-align: center;
+}

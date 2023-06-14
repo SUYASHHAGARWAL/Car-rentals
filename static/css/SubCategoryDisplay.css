@@ -1,0 +1,29 @@
+.maincontainer{
+    width: 100vw;
+    height: 100vh;
+    background: #81ecec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .box{
+    background: #fff;
+    width: 80vw;
+    height: 70vh;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-y: scroll;
+  }
+  .headingtext{
+    font-size: 22px;
+    font-family: Poppins;
+    font-weight: bold;
+    padding: 5px;
+    letter-spacing: 1px;
+  }
+  .labelstyle{
+    font-size: 15px;
+    font-family: Poppins;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }

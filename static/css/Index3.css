@@ -1,0 +1,95 @@
+.maincontainer{
+    background: #dfe6e9;
+    width: 100%;
+    height: 200%;
+    display: flex;
+    flex-direction: column;
+}
+.appbar{
+    background: #fff;
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.maintab{
+    background: #ecf0f1;
+    width: 100%;
+    height: 200%;
+    display: flex;
+}
+.topdiv{
+    height: 90%;
+    width: 67%;
+    background: #ecf0f1;
+    margin-top: 3px;
+    margin-left: 7px;
+}
+.bottomdiv{
+    height: 20%;
+    width: 60%;
+    background: #fff;
+    margin-top: 10px;
+    margin-left: 7px;
+}
+.rigntdiv{
+    height: 40%;
+    width: 28%;
+    background: #ecf0f1;
+    margin-left: 3%;
+    margin-top: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.subdivfirst{
+    height: 40%;
+    width: 100%;
+    background: #ecf0f1;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.subdivsecond{
+    height: 43%;
+    width: 100%;
+    background: #ecf0f1;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.proceed-btn {
+    background-color: #2e86de; /* Green background color */
+    border: none; /* Remove border */
+    color: white; /* White text color */
+    padding: 12px 24px; /* Add padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as block element */
+    font-size: 16px; /* Font size */
+    margin: 10px; /* Add margin */
+    cursor: pointer; /* Add cursor on hover */
+    border-radius: 4px; /* Rounded corners */
+    font-weight: bold;
+}
+
+.proceed-btn:hover {
+    background-color: #48dbfb; /* Darker green background color on hover */
+}
+.box{
+    width: 350px;
+    height: 40px;
+    border: 1px solid #778ca3;
+    border-radius: 10px 10px 10px 10px;
+}
+.centerAlign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.textStyle{
+    /* border: none;
+    outline: none; */
+    font-weight: bold;
+    font-size: 14;
+    text-align: left;
+    margin: 2px;
+}
