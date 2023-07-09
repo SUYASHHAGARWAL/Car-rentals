@@ -129,7 +129,6 @@ $(document).ready(function(){
             searching('all')
         else
             searching(sb)
-    
     })
     $('.fuel').click(function(){
         sf=''
@@ -145,6 +144,5 @@ $(document).ready(function(){
             searching('all')
         else
             searching(sb)
-        
     })
 })
