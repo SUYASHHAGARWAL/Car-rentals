@@ -14,6 +14,12 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 import razorpay
 from django.conf import settings
 
+
+@xframe_options_exempt    
+@api_view(['GET','POST','DELETE'])
+def new(req):
+    return redirect('/api/index')
+
 @xframe_options_exempt    
 @api_view(['GET','POST','DELETE'])
 def Index(request): 
