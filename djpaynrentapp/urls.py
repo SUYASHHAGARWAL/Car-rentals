@@ -25,6 +25,7 @@ from paynrentapp import agency_vehicle_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    re_path(r'^/',user_view.Index),
     re_path(r'^api/categoryinterface',category_view.CategoryInterface),
     re_path(r'^api/categorysubmit',category_view.CategorySubmit),
     re_path(r'^api/categorydisplay',category_view.CategoryDisplay),
