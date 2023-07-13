@@ -193,8 +193,8 @@
         })
         $('#btn').click(function(){
             // alert($('#dh').val())
-            $.getJSON('http://localhost:8000/api/modifyindex2',{city:$('#dcity').val(),startdate:$('#startdate').val(),enddate:$('#enddate').val(),days:$('#dh').val()},function(data){
-                window.location.href="http://localhost:8000/api/twoindex"
+            $.getJSON('/api/modifyindex2',{city:$('#dcity').val(),startdate:$('#startdate').val(),enddate:$('#enddate').val(),days:$('#dh').val()},function(data){
+                window.location.href="/api/twoindex"
             })
             
         })

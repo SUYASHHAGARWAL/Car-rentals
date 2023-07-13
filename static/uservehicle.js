@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $.getJSON("http://localhost:8000/api/test",{param:'all'},function(data){
+    $.getJSON("/api/test",{param:'all'},function(data){
         var htm = `<div class="rightbartemplate">
         <img src="/static/Subscription.png" width="90%" style="display: flex; margin-left: 7%; margin-top: 5%;">
 </div>`
@@ -29,7 +29,7 @@ $(document).ready(function(){
                 </div>
                 <div class="button_style" style="display: flex; margin-right: 7%; margin-top: 1%;">
 
-                <a href='http://localhost:8000/api/displayvehiclelist/?vehicles=${JSON.stringify(item)}' style="text-decoration: none; cursor:pointer; color: #000;">
+                <a href='/api/displayvehiclelist/?vehicles=${JSON.stringify(item)}' style="text-decoration: none; cursor:pointer; color: #000;">
                     <div style="display: flex; align-items: center; font-size: 15; color: #fff; font-weight: bold;">Book  ></div>
                 </div></a>
             </div>
@@ -47,14 +47,14 @@ $(document).ready(function(){
 
     function searching(value){
         console.log(value)
-        $.getJSON("http://localhost:8000/api/test",{param:value},function(data){
+        $.getJSON("/api/test",{param:value},function(data){
             var htm = `<div class="rightbartemplate">
             <img src="/static/Subscription.png" width="90%" style="display: flex; margin-left: 7%; margin-top: 5%;">
     </div>`
     console.log(data)
             data.map((item)=>{
                  htm+=`
-                 <div class="rightbartemplate" style="margin-left: 3%;" onclick="window.location.href='http://localhost:8000/api/threeindex'">
+                 <div class="rightbartemplate" style="margin-left: 3%;" onclick="window.location.href='/api/threeindex'">
                  <img src='/${item.picture}' width="45%" height="30%" style="display: flex; margin-left: 20%; margin-top: 4%;">
                  <div style="margin-left: 8%; font-family: Poppins; font-size: 12; font-weight: 500; margin-top: 1%;">
                  ${item.companyname}
@@ -76,7 +76,7 @@ $(document).ready(function(){
                          </div>
                          <div class="button_style" style="display: flex; margin-right: 7%; margin-top: 1%;">
 
-                         <a href='http://localhost:8000/api/displayvehiclelist/?vehicles=${JSON.stringify(item)}' style="text-decoration: none; cursor:pointer; color: #000;" >
+                         <a href='/api/displayvehiclelist/?vehicles=${JSON.stringify(item)}' style="text-decoration: none; cursor:pointer; color: #000;" >
                              <div style="display: flex; align-items: center; font-size: 15; color: #fff; font-weight: bold;">Book  ></div>
                          </div></a>
                      </div>
