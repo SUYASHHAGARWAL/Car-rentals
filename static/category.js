@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $.getJSON("http://localhost:8000/api/json_displaycategory", function (data) {
+  $.getJSON("/api/json_displaycategory", function (data) {
     $("#categoryid").append($("<option>").text("-Select Category-"));
     data.map((item) => {
       $("#categoryid").append($("<option>").text(item.categoryname).val(item.id));
@@ -7,7 +7,7 @@ $(document).ready(function () {
   });
 
   $("#categoryid").change(function () {
-    $.getJSON("http://localhost:8000/api/jsondisplaysubcategory",{'cddid':$('#categoryid').val()}, function (data) {
+    $.getJSON("/api/jsondisplaysubcategory",{'cddid':$('#categoryid').val()}, function (data) {
       $("#subcategoryid").empty()
       $("#subcategoryid").append($("<option>").text("-Select Brand-"))
       console.log(data)

@@ -18,7 +18,7 @@ from django.conf import settings
 @xframe_options_exempt    
 @api_view(['GET','POST','DELETE'])
 def new(req):
-    return redirect('/api/index')
+    return render(req,'index.html')
 
 @xframe_options_exempt    
 @api_view(['GET','POST','DELETE'])
