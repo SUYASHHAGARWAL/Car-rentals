@@ -11,7 +11,7 @@ from . import tuple_to_dict
 import json
 import datetime
 from django.views.decorators.clickjacking import xframe_options_exempt
-import razorpay
+# import razorpay
 from django.conf import settings
 
 
