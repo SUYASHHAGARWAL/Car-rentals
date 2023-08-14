@@ -72,7 +72,7 @@ urlpatterns = [
 
 
 
-    re_path(r'^api/index',user_view.Index),
+    re_path(r'',user_view.Index),
     re_path(r'^api/test',user_view.VehicleDisplayForUser),
     re_path(r'^api/twoindex',user_view.Index2),
     re_path(r'^api/displayvehiclelist',user_view.Index3), 
