@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-v$dfgg-5qoampx8^huqw%k(h5bgndcp3ok9z(+&c(qi=va!!6i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['13.236.184.75']
+ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:8000',
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'djpaynrentapp.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': { 'ENGINE': 'django.db.backends.mysql', 'NAME': 'railway', 'USER': 'root', 'PASSWORD': 'CDzz7o9Cn91C3qHN4ioL', 'HOST': 'containers-us-west-200.railway.app', 'PORT': '8071', } 
+    'default': { 'ENGINE': 'django.db.backends.mysql', 'NAME': 'paynrent', 'USER': 'root', 'PASSWORD': '1234', 'HOST': 'localhost', 'PORT': '3306', } 
 }
 
 
