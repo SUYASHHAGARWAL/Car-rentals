@@ -14,6 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+MAIN_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-v$dfgg-5qoampx8^huqw%k(h5bgndcp3ok9z(+&c(qi=va!!6i
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:8000',
     'http://localhost:8000',
@@ -64,7 +65,7 @@ ROOT_URLCONF = 'djpaynrentapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(MAIN_DIR,'paynrentapp/Templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,7 +85,7 @@ WSGI_APPLICATION = 'djpaynrentapp.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': { 'ENGINE': 'django.db.backends.mysql', 'NAME': 'paynrent', 'USER': 'root', 'PASSWORD': '1234', 'HOST': 'localhost', 'PORT': '3306', } 
+    'default': { 'ENGINE': 'django.db.backends.mysql', 'NAME': 'railway', 'USER': 'root', 'PASSWORD': 'Z69kbx3EGlVXtX3cW4Ko', 'HOST': 'containers-us-west-187.railway.app', 'PORT': '6815', } 
 }
 
 
@@ -124,7 +125,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 import os 
-STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+STATICFILES_DIRS = (os.path.join(MAIN_DIR,'static'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
