@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'djpaynrentapp.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': { 'ENGINE': 'django.db.backends.mysql', 'NAME': 'railway', 'USER': 'root', 'PASSWORD': 'Z69kbx3EGlVXtX3cW4Ko', 'HOST': 'containers-us-west-187.railway.app', 'PORT': '6815', } 
+    'default': { 'ENGINE': 'django.db.backends.mysql', 'NAME': 'paynrent', 'USER': 'root', 'PASSWORD': '1234', 'HOST': 'localhost', 'PORT': '3306', } 
 }
 
 

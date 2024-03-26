@@ -37,7 +37,7 @@
                             <a href="#" class="forgot-pass">Forgot password?</a>
                         </div>
                         <div class="field button-field">
-                            <button id="rzp-button1">Login</button>
+                            <button id="rzp-button1">Login & pay</button>
                         </div>
                     </form>
                     <div class="form-link">
@@ -168,7 +168,7 @@ links.forEach(link => {
     var rzp1 = new Razorpay(options);
   
     document.getElementById('rzp-button1').onclick = function(e){
-        alert(1)
+        alert("Confirm payment? ")
         rzp1.open();
         e.preventDefault();
     }
