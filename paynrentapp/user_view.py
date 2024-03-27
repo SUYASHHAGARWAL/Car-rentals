@@ -77,7 +77,19 @@ def Index3(request):
     cursor.execute(q)
     records = tuple_to_dict.ParseDictMultipleRecord(cursor)
     # print("xxxxxxxxxx\n\n",records)
-    return render(request,"Index3.html",{'vehicles':selected_vehicles,'userdata':userdata,'records':records})
+    if(userdata['option'] =='With Driver' ):
+        qry = "select * from paynrentapp_Drivers where appointed_to_someone ='no'"
+        cursor = connection.cursor()
+        cursor.execute(qry)
+        rtd = tuple_to_dict.ParseDictMultipleRecord(cursor)
+        if(rtd):
+            print("hp rha h apooint")
+            print(rtd)
+            return render(request,"Index3.html",{'vehicles':selected_vehicles,'userdata':userdata,'records':records,'dprofile':rtd[0]})
+        return render(request,"Index3.html",{'vehicles':selected_vehicles,'userdata':userdata,'records':records})
+    else:
+        return render(request,"Index3.html",{'vehicles':selected_vehicles,'userdata':userdata,'records':records})
+
 
 @xframe_options_exempt    
 @api_view(['GET','POST','DELETE'])

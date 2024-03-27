@@ -23,6 +23,29 @@
     
   
     </head>
+    <style>
+        .driver-profile {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.profile-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.profile-label {
+    flex: 1;
+    font-weight: bold;
+}
+
+.profile-value {
+    flex: 2;
+}
+
+    </style>
     <body>
         <div class="maincontainer">
             <div class="appbar">
@@ -62,11 +85,11 @@
                                 {{userdata.enddate}}
                             </div>
                         </div>
-                        <div style="display: flex; width: 30%; height: 15%; margin-left: 55%;">
+                        <!-- <div style="display: flex; width: 30%; height: 15%; margin-left: 55%;">
                             <div style="display: flex; width: 60%; height: 50%; margin-top: 3%; margin-left: 20%; justify-content: center; align-items: center;">
                                 {{userdata.option}}
                             </div>
-                        </div>
+                        </div> -->
                         <div style="display: flex; width: 30%; height: 15%; margin-left: 55%;">
                             <div style="display: flex; width: 60%; height: 50%; margin-top: 3%; margin-left: 20%; justify-content: center; align-items: center;">
                                 {{userdata.days}}
@@ -74,7 +97,7 @@
                         </div>
                         <div style="display: flex; width: 30%; height: 12%; margin-left: 55%;">
                             <div style="display: flex; width: 60%; height: 50%; margin-top: 3%; margin-left: 20%; justify-content: center; align-items: center;">
-                                <b>{{userdata.city}}</b>
+                                <b>{{userdata.city}},  {{userdata.option}}</b>
                             </div>
                         </div>
                         <span style="display: flex; margin-left: 53%;"> <b>Pricing Plan : Includes 432 km , excluded fuel</b></span><br>
@@ -174,7 +197,38 @@
                    <center>
                     <input type="submit" class="proceed-btn" value="Proceed"/>
                    </center>
+                   <div id="dprofile">
+                   <div class="driver-profile">
+                    <div class="profile-item">
+                        <div class="profile-label">Name:</div>
+                        <div class="profile-value">{{dprofile.name}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">Email:</div>
+                        <div class="profile-value">{{dprofile.email}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">Mobile No:</div>
+                        <div class="profile-value">{{dprofile.mobileno}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">Aadhar Number:</div>
+                        <div class="profile-value">{{dprofile.AadharNumber}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">Licence Number:</div>
+                        <div class="profile-value">{{dprofile.licenceNumber}}</div>
+                    </div>
                 </div>
+            </div>
+                
+
+
+                </div>
+
+
+
+
                 </div>
             </form>
             </div>
@@ -188,73 +242,17 @@
                 
             </div>
         </div>
-    <!-- </body>
-    <script type="text/javascript" src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script type="text/javascript">
-        function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
-        $(document).ready(function(){
-            rupee="{{userdata.netamount}}"
-            var options = {
-                "key": "rzp_test_GQ6XaPC6gMPNwH", // Enter the Key ID generated from the Dashboard
-                "amount": rupee*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise or INR 500.
-                "currency": "INR",
-                "name": "PayNRent",
-                "description": "Ecommerce",
-                "image": "http://localhost:8000/static/Logo1.png", // Company Logo
-                "theme": {
-                    "color": "#15b8f3"
-                },
-                "prefill": {
-                    "name": "Suyash",
-                    "email": "2021cs7su@mitsgwl.ac.in",
-                    "contact": "8982994678"
-                },
-                "notes": {
-                    "address": "City Center"
-                }, 
-                "handler": function (response){
-                    alert(response.razorpay_payment_id);
+       
+    </body>
 
-                    // AFTER TRANSACTION IS COMPLETE YOU WILL GET THE RESPONSE HERE
-                },
-                "modal": {
-                    "ondismiss": function () {
-                        if (confirm("Are you sure, you want to close the form?")) {
-                            txt = "You pressed OK!";
-                            console.log("Checkout form closed by the user");
-                        }
-                        else {
-                            txt = "You pressed Cancel!";
-                            console.log("Complete the Payment")
-                        }
-                    }
-                }
-            };
-            var rzp1 = new Razorpay(options);
-            document.getElementById('rzp-button1').onclick = function (e) {
-                if(email_address.value.length == 0 || mobile_no.value.length == 0 || otp.value.length == 0){
-                    alert("You Miss to fill The Mobile Number or Email Address or otp")
-                }
-                else{
-                    rzp1.open();
-                    e.preventDefault();
-                }
-            }
-            
-        });
-        
-
-    </script>  -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script type="text/javascript">
 
         $(document).ready(function () {
+            if ('{{dprofile.name}}' == '') {
+        var pf = document.getElementById('dprofile');
+        pf.style.display = 'none';
+    }
             var otp = ''
             function generateOTP(){
                 otp=parseInt((Math.random()*8999)+1000)
