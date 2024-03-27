@@ -28,7 +28,7 @@ def Index(request):
 @xframe_options_exempt    
 @api_view(['GET','POST','DELETE'])
 def ShowVehicleList(request):
-    userdata={'mobilenum':'','city':request.GET['city'],'startdate':request.GET['startdate'],'enddate':request.GET['enddate'],'days':request.GET['dh']}
+    userdata={'mobilenum':'','city':request.GET['city'],'startdate':request.GET['startdate'],'enddate':request.GET['enddate'],'days':request.GET['dh'],'option':request.GET['option']}
     request.session["USERDATA"] = userdata
     d = userdata['days'].split(":")
     userdata['dys']=d[0]

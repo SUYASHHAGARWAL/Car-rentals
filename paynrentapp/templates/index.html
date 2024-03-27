@@ -1,58 +1,15 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental</title>
     <link rel="stylesheet" href="/static/css/Index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" />
-    <!-- datetimepicker jQuery CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        $(document).ready(function () {
-            
-            $('.city').click(function () {
-                $('#dcity').val($(this).attr('scity'))
-                $('#car_heading').html(`Car rental in ${$(this).attr('scity')}`)
-                var selectedCity = $(this).attr('scity');
-                console.log("Selected city:", selectedCity);
-            });
-          
-            $(".datetimepicker").each(function () {
-                $(this).datetimepicker();
-            });
-            $('#enddate').change(function () {
-                const date1 = new Date($('#startdate').val());
-                const date2 = new Date($('#enddate').val());
-                const diffTime = Math.abs(date2 - date1);
-                S = parseInt(diffTime / 1000)
-                M = parseInt(S / 60)
-                H = parseInt(M / 60)
-                D = parseInt(H / 24)
-                H = H % 24
-                const diffDays = parseInt(diffTime / (1000 * 60 * 60 * 24))
-                $('#car_time').html("Duration: " + diffDays + " Days and  " + H + " Hours")
-                $('#dh').val(diffDays + ":" + H)
-            })
-          
-            $('#btn').click(function () {
-                $.getJSON('/api/showvehiclelist',{city:$('#dcity').val(),startdate:$('#startdate').val(),enddate:$('#enddate').val(),dh:$('#dh').val()},function(data){ 
-                window.location.href = `/api/twoindex`
-            }) 
-        })
-    })
-    </script>
 </head>
 
 <body>
@@ -64,41 +21,46 @@
                 <a href="/api/agencysignuplogin" style="text-decoration: none;"><span style="margin-right: 5%; ">Agencies SignUp Login</span></a>
             </div>
         </div>
-        <div class=" row " style="margin-top: 40px;">
+        <div class="row" style="margin-top: 40px;">
             <div class="col-md-6">
                 <div class="slidebox">
-                    <img src="/static/heading_leftbox.png" width="80%" >
+                    <img src="/static/heading_leftbox.png" width="80%">
                     <img src="/static/rentals.png" width="25%">
                     <div id="car_heading" style="font-family: Poppins; font-size: 18; font-weight: 600; padding: 10px;">
-                        Self drive cars in India</div>
-                    <div>
+                        Self drive cars in India
+                    </div>
+                    <div style="cursor: pointer;">
                         <div class="box centerAlign" data-toggle="modal" data-target="#myModal">
                             <i class="fa-solid fa-location-dot fa-xl" style="width: 10%; color: #778ca3;"></i>
                             <input class="textStyle" type="text" id="dcity" placeholder="Select City...">
-                        </div>   
-                        <div style="display: flex; flex-direction: row;">
-                            
-                            
+                        </div>
+                        <div style="display: flex; flex-direction: row; cursor: pointer;">
                             <div class="boxleft centerAlign">
-                                <input type="text" id="startdate" class="datetimepicker datetextstyle"
-                                    placeholder="Start Date">
+                                <input type="text" id="startdate" class="datetimepicker datetextstyle" placeholder="Start Date">
                             </div>
                             <div class="boxright centerAlign">
-                                <input type="text" id="enddate" class="datetimepicker datetextstyle"
-                                    placeholder="End Date">
+                                <input type="text" id="enddate" class="datetimepicker datetextstyle" placeholder="End Date">
                             </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; margin-top: 2rem;">
+                            <label>
+                                <input type="radio" id="with_driver" name="option" value="With Driver">
+                                With Driver
+                            </label>
+                            <label>
+                                <input type="radio" id="without_driver" name="option" value="Without Driver">
+                                Without Driver
+                            </label>
                         </div>
                     </div>
                     <input type="hidden" name="" id="dh">
-                    <div id="car_time" style="padding: 10px; font-family: Poppins; font-size: 14; font-weight: 600;">
-                    </div>
-                    <div id="btn" class="button_style">
+                    <div id="btn" class="button_style" style="cursor: pointer;">
                         <div style="display: flex; align-items: center; font-size: 20; color: #fff; font-weight: bold;">
-                            Search ></div>
+                            Search &gt;
+                        </div>
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6">
                 <div class="image_center">
                     <img style="margin-top: 5%;" src="/static/home_top.webp" width="80%">
@@ -106,31 +68,82 @@
             </div>
         </div>
     </div>
+
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
-          <div class="modal-content">
-      
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">Select City</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Select City</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body" class="close" data-dismiss="modal">
+                    <h4 class="city" scity="New Delhi">New Delhi</h4>
+                    <h4 class="city" scity="Gwalior">Gwalior</h4>
+                    <h4 class="city" scity="Pune">Pune</h4>
+                    <h4 class="city" scity="Indore">Indore</h4>
+                    <h4 class="city" scity="Noida">Noida</h4>
+                    <h4 class="city" scity="Jhansi">Jhansi</h4>
+                    <h4 class="city" scity="Mumbai">Mumbai</h4>
+                </div>
             </div>
-      
-            <!-- Modal body -->
-            <div class="modal-body"  class="close" data-dismiss="modal">  
-              <h4 class="city" scity="New Delhi">New Delhi</h4>
-              <h4 class="city" scity="Gwalior">Gwalior</h4>
-              <h4 class="city" scity="Pune">Pune</h4>
-              <h4 class="city" scity="Indore">Indore</h4>
-              <h4 class="city" scity="Noida">Noida</h4>
-              <h4 class="city" scity="jhansi">jhansi</h4>
-              <h4 class="city" scity="mumbai">mumbai</h4>
-            </div>
-          </div>
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.city').click(function () {
+                $('#dcity').val($(this).attr('scity'));
+                $('#car_heading').html(`Car rental in ${$(this).attr('scity')}`);
+                var selectedCity = $(this).attr('scity');
+                console.log("Selected city:", selectedCity);
+            });
+
+            $(".datetimepicker").each(function () {
+                $(this).datetimepicker();
+            });
+
+            $('#enddate').change(function () {
+    const date1 = new Date($('#startdate').val());
+    const date2 = new Date($('#enddate').val());
+    const diffTime = Math.abs(date2 - date1);
+    S = parseInt(diffTime / 1000);
+    M = parseInt(S / 60);
+    H = parseInt(M / 60);
+    D = parseInt(H / 24);
+    H = H % 24;
+    const diffDays = parseInt(diffTime / (1000 * 60 * 60 * 24));
+    $('#car_time').html("Duration: " + diffDays + " Days and  " + H + " Hours");
+    $('#dh').val(diffDays + ":" + H);
+});
+
+            $('#btn').click(function () {
+                // Get the value of the selected radio button
+                var selectedOption = $("input[name='option']:checked").val();
+                // Make sure an option is selected
+                if (selectedOption) {
+                    $.getJSON('/api/showvehiclelist', {
+                        city: $('#dcity').val(),
+                        startdate: $('#startdate').val(),
+                        enddate: $('#enddate').val(),
+                        dh: $('#dh').val(),
+                        option: selectedOption, // Pass the selected option value
+                    }, function (data) {
+                        window.location.href = '/api/twoindex';
+                    });
+                } else {
+                    alert("Please select an option.");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
+
