@@ -5,6 +5,7 @@ from paynrentapp.models import Vehicle
 from paynrentapp.models import Administrator
 from paynrentapp.models import Agencies
 from paynrentapp.models import User
+from paynrentapp.models import Drivers
 
 class categoryserializers(serializers.ModelSerializer):
     class Meta:
@@ -35,3 +36,8 @@ class userserialiser(serializers.ModelSerializer):
     class Meta:
         model=User
         fields=('id','Username','UserEmail','password','mobileno','AadharNumber','licenceNumber')
+
+class driverserializer(serializers.ModelSerializer):
+    class Meta:
+        model = Drivers
+        fields=('id','name','email','mobileno','AadharNumber','licenceNumber','appointed_to_someone')

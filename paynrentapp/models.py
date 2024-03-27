@@ -55,3 +55,12 @@ class User(models.Model):
     mobileno= models.CharField(max_length=15, blank=False, default='')
     AadharNumber= models.CharField(max_length=15, blank=False, default='')
     licenceNumber= models.CharField(max_length=15, blank=False, default='')
+
+class Drivers(models.Model):
+    name = models.CharField(max_length=70, blank=False, default='')
+    email = models.CharField(max_length=70, blank=False, default='')
+    mobileno= models.CharField(max_length=15, blank=False, default='')
+    AadharNumber= models.CharField(max_length=15, blank=False, default='')
+    licenceNumber= models.CharField(max_length=15, blank=False, default='')
+    appointed_to_someone = models.CharField(max_length=15, blank=False, default='')
+    
